@@ -48,6 +48,7 @@
 
           nativeBuildInputs = with pkgs; [
             pkg-config
+            makeWrapper
           ];
 
           buildInputs = with pkgs; [
@@ -58,6 +59,12 @@
             libXi
             wayland
           ];
+
+          # yt-dlp と ffmpeg を実行時 PATH に自動バインド
+          postInstall = ''
+            wrapProgram $out/bin/shard \
+              --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.yt-dlp pkgs.ffmpeg ]}
+          '';
         };
       }
     );
