@@ -1,0 +1,39 @@
+[package]
+name = "shard"
+version = "0.1.0"
+edition = "2024"
+description = "A fast, ergonomic yt-dlp TUI downloader built with Rust and Ratatui"
+license = "MIT"
+repository = "https://github.com/LilacAoi/shard"
+authors = ["LilacAoi"]
+readme = "README.md"
+
+[dependencies]
+# TUI & Terminal
+ratatui = "0.30"
+crossterm = { version = "0.28", features = ["event-stream"] }
+ratatui-image = { version = "11.1", default-features = false, features = ["crossterm"] }
+
+# Async runtime & Process
+tokio = { version = "1.40", features = ["full"] }
+tokio-stream = "0.1"
+
+# Serialization & Config
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+
+# Image processing (Thumbnail preview)
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp"] }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+
+# System integrations
+arboard = "3.4"
+notify-rust = "4.11"
+directories = "5.0"
+dirs = "5.0"
+
+# Utility
+regex = "1.10"
+anyhow = "1.0"
+thiserror = "1.0"
