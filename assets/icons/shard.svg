@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- 背景グラデーション -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#17122b" />
+    </linearGradient>
+
+    <!-- 枠線グラデーション -->
+    <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#9d4edd" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#f72585" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- シャード1: トップクリスタル (シアン系) -->
+    <linearGradient id="shard-top" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9" />
+      <stop offset="60%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0891b2" />
+    </linearGradient>
+
+    <!-- シャード2: 右フロントクリスタル（再生マークの先端 / エレクトリックパープル系） -->
+    <linearGradient id="shard-right" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#c084fc" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#7e22ce" />
+    </linearGradient>
+
+    <!-- シャード3: ボトムクリスタル（下向きダウンロード矢印の鋭い切先 / マゼンタ・ローズ系） -->
+    <linearGradient id="shard-bottom" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6" />
+      <stop offset="50%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#be185d" />
+    </linearGradient>
+
+    <!-- シャード4: レフトバッククリスタル（影と深み） -->
+    <linearGradient id="shard-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+
+    <!-- シャード5: センターコア（光の反射） -->
+    <linearGradient id="shard-core" x1="30%" y1="10%" x2="70%" y2="90%">
+      <stop offset="0%" stop-color="#e0f2fe" />
+      <stop offset="40%" stop-color="#a5f3fc" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- 発光グロー効果 -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="28" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- バックグラウンド角丸スクエア (Squircle) -->
+  <rect x="24" y="24" width="464" height="464" rx="112" ry="112"
+        fill="url(#bg-grad)" stroke="url(#border-grad)" stroke-width="12" />
+
+  <!-- 背景の淡いアクセントグロー -->
+  <g filter="url(#glow)" opacity="0.45">
+    <polygon points="256,120 380,256 256,392 140,256" fill="#00f2fe" />
+    <polygon points="256,160 360,256 256,360 170,256" fill="#a855f7" />
+  </g>
+
+  <!-- メインシンボル: シャード（幾何学的結晶＆再生・ダウンロードモチーフ） -->
+  <g stroke="#0f172a" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- 1. 左側バックシャード -->
+    <polygon points="144,196 228,140 236,256 144,284" fill="url(#shard-left)" />
+
+    <!-- 2. トップシャード -->
+    <polygon points="228,140 316,196 256,256 236,256" fill="url(#shard-top)" />
+
+    <!-- 3. 右側プレイ先端シャード -->
+    <polygon points="316,196 396,256 316,316 256,256" fill="url(#shard-right)" />
+
+    <!-- 4. ボトムダウンロードシャード（下向きの鋭い切先） -->
+    <polygon points="256,256 316,316 256,396 204,332" fill="url(#shard-bottom)" />
+
+    <!-- 5. 左下アンカーシャード -->
+    <polygon points="144,284 236,256 204,332 168,364" fill="url(#shard-left)" />
+
+    <!-- 6. センターコア（光彩面） -->
+    <polygon points="236,256 276,216 308,256 256,296" fill="url(#shard-core)" opacity="0.95" />
+  </g>
+
+  <!-- 結晶エッジのハイライト（光の反射線） -->
+  <g stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity="0.75">
+    <!-- メイン稜線 -->
+    <line x1="228" y1="140" x2="396" y2="256" />
+    <line x1="396" y1="256" x2="256" y2="396" />
+    <line x1="236" y1="256" x2="316" y2="196" opacity="0.6" />
+    <line x1="236" y1="256" x2="316" y2="316" opacity="0.6" />
+    <line x1="144" y1="196" x2="228" y2="140" opacity="0.5" />
+  </g>
+
+  <!-- 鋭い光のスパークル（アクセント） -->
+  <circle cx="396" cy="256" r="5" fill="#ffffff" />
+  <circle cx="256" cy="396" r="4" fill="#ffffff" />
+  <circle cx="228" cy="140" r="4" fill="#67e8f9" />
+</svg>
